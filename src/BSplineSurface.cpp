@@ -30,7 +30,7 @@
 #include <stdexcept>
 #include <ios>
 
-#include "BSplineSurface.h"
+#include <fitpackpp/BSplineSurface.h>
 
 #include "FCMangle.h"
 

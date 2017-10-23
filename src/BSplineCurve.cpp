@@ -28,7 +28,7 @@
 #include <stdexcept>
 #include <ios>
 
-#include "BSplineCurve.h"
+#include <fitpackpp/BSplineCurve.h>
 
 #include "FCMangle.h"
 

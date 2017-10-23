@@ -32,6 +32,7 @@ set(fitpack_SRC
     fitpack/splder.f
     fitpack/splev.f
     fitpack/surfit.f
+    fitpack/regrid.f
 )
 
 add_library(fitpack STATIC 
@@ -45,14 +46,19 @@ include(FortranCInterface)
 FortranCInterface_HEADER(FCMangle.h
                          MACRO_NAMESPACE "FC_"
                          SYMBOL_NAMESPACE ""
-                         SYMBOLS curfit splev splder surfit bispev parder)
+                         SYMBOLS curfit splev splder surfit bispev parder regrid)
 FortranCInterface_VERIFY(CXX)
 
+# For FCMangle.h
 include_directories(${CMAKE_CURRENT_BINARY_DIR})
 
+include_directories(
+  ${CMAKE_SOURCE_DIR}/include
+)
+
 set(fitpackpp_SRC
-	fitpackpp/BSplineCurve.cpp
-    fitpackpp/BSplineSurface.cpp)
+	src/BSplineCurve.cpp
+    src/BSplineSurface.cpp)
 
 add_library(fitpackpp STATIC
 	        ${fitpackpp_SRC})
